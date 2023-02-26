@@ -56,8 +56,15 @@ public final class InicioSesion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         bg_opcRecu = new javax.swing.ButtonGroup();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jf_menu = new javax.swing.JFrame();
+        jp_desplazable = new javax.swing.JPanel();
+        jp_panelSuperior = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jp_panelInferior = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jp_superior = new javax.swing.JPanel();
         jl_logoPortal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -145,6 +152,7 @@ public final class InicioSesion extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setToolTipText("");
 
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         bg_opcRecu.add(jRadioButton1);
@@ -169,6 +177,7 @@ public final class InicioSesion extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Continuar");
+        jButton2.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
@@ -182,17 +191,6 @@ public final class InicioSesion extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1)
@@ -200,8 +198,18 @@ public final class InicioSesion extends javax.swing.JFrame {
                                 .addGap(0, 15, Short.MAX_VALUE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,15 +218,17 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addGap(128, 128, 128)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(14, 14, 14)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(15, 15, 15))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -234,12 +244,128 @@ public final class InicioSesion extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 83, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
 
         jd_Contrase.getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        jScrollPane2.setViewportView(jTextPane1);
+        jf_menu.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                jf_menuComponentResized(evt);
+            }
+        });
+        jf_menu.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jp_desplazable.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jp_desplazableLayout = new javax.swing.GroupLayout(jp_desplazable);
+        jp_desplazable.setLayout(jp_desplazableLayout);
+        jp_desplazableLayout.setHorizontalGroup(
+            jp_desplazableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jp_desplazableLayout.setVerticalGroup(
+            jp_desplazableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+
+        jf_menu.getContentPane().add(jp_desplazable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 640));
+
+        jp_panelSuperior.setBackground(new java.awt.Color(37, 71, 106));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel10.setBackground(new java.awt.Color(236, 240, 245));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel10.setText("¡Hola Oliver Iraheta Estrada!");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(494, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jp_panelSuperiorLayout = new javax.swing.GroupLayout(jp_panelSuperior);
+        jp_panelSuperior.setLayout(jp_panelSuperiorLayout);
+        jp_panelSuperiorLayout.setHorizontalGroup(
+            jp_panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_panelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        jp_panelSuperiorLayout.setVerticalGroup(
+            jp_panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_panelSuperiorLayout.createSequentialGroup()
+                .addGap(0, 150, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jf_menu.getContentPane().add(jp_panelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1020, 210));
+
+        jp_panelInferior.setBackground(new java.awt.Color(236, 240, 245));
+        jp_panelInferior.setPreferredSize(new java.awt.Dimension(650, 430));
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel11.setText("Este es tu nuevo Portal de UNITEC.");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("Aquí encontrarás todas tus aplicaciones y herramientas de trabajo de siempre y también algunas nuevas que te serán muy útiles.   ");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jp_panelInferiorLayout = new javax.swing.GroupLayout(jp_panelInferior);
+        jp_panelInferior.setLayout(jp_panelInferiorLayout);
+        jp_panelInferiorLayout.setHorizontalGroup(
+            jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_panelInferiorLayout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
+        );
+        jp_panelInferiorLayout.setVerticalGroup(
+            jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_panelInferiorLayout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 324, Short.MAX_VALUE))
+        );
+
+        jf_menu.getContentPane().add(jp_panelInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 1020, 430));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -319,6 +445,12 @@ public final class InicioSesion extends javax.swing.JFrame {
         jb_ingresar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jb_ingresar.setForeground(new java.awt.Color(255, 255, 255));
         jb_ingresar.setText("Ingresar");
+        jb_ingresar.setBorder(null);
+        jb_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ingresarMouseClicked(evt);
+            }
+        });
 
         jl_olvidar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jl_olvidar.setForeground(new java.awt.Color(36, 71, 106));
@@ -352,10 +484,9 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pf_contra, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tf_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
-                        .addComponent(jb_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jl_olvidar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tf_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                    .addComponent(jb_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_olvidar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -412,6 +543,7 @@ public final class InicioSesion extends javax.swing.JFrame {
         jb_CambioContra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jb_CambioContra.setForeground(new java.awt.Color(255, 255, 255));
         jb_CambioContra.setText("Asistente para cambio de contraseña");
+        jb_CambioContra.setBorder(null);
         jb_CambioContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_CambioContraActionPerformed(evt);
@@ -514,7 +646,7 @@ public final class InicioSesion extends javax.swing.JFrame {
             pf_contra.setText("");
             pf_contra.setForeground(Color.black);
         }
-        
+
         if (tf_usuario.getText().equals("")) {
             tf_usuario.setText("Ingrese su usuario de correo, sin incluir el \"@unitec.edu\"");
             tf_usuario.setForeground(Color.GRAY);
@@ -529,7 +661,7 @@ public final class InicioSesion extends javax.swing.JFrame {
 
     private void jl_olvidarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_olvidarMouseExited
         // TODO add your handling code here
-        Font font = new Font("Segoe UI",0, 14);
+        Font font = new Font("Segoe UI", 0, 14);
         jl_olvidar.setFont(font);
     }//GEN-LAST:event_jl_olvidarMouseExited
 
@@ -548,6 +680,24 @@ public final class InicioSesion extends javax.swing.JFrame {
         jd_Contrase.setVisible(false);
         setInicioSesion();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jf_menuComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jf_menuComponentResized
+        // TODO add your handling code here:
+        jp_desplazable.setSize(jp_desplazable.getWidth(), jf_menu.getHeight());
+        jp_panelInferior.setSize(jf_menu.getWidth() - jp_desplazable.getWidth(), (jf_menu.getHeight() - jp_panelSuperior.getHeight()));
+        jp_panelSuperior.setSize(jf_menu.getWidth() - jp_desplazable.getWidth(), (jf_menu.getHeight() - jp_panelInferior.getHeight()));
+        jPanel9.setBounds(100, jPanel9.getY(),jp_panelSuperior.getWidth()-200,jPanel9.getHeight());
+        jPanel7.setBounds(jPanel9.getX(), jPanel7.getY(),jPanel9.getWidth(),jPanel7.getHeight());
+    }//GEN-LAST:event_jf_menuComponentResized
+
+    private void jb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMouseClicked
+        // TODO add your handling code here:
+        jf_menu.pack();
+        jf_menu.setLocationRelativeTo(this);
+        jf_menu.setExtendedState(6);
+        this.setVisible(false);
+        jf_menu.setVisible(true);
+    }//GEN-LAST:event_jb_ingresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -589,6 +739,9 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -605,25 +758,34 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JButton jb_CambioContra;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_Contrase;
+    private javax.swing.JFrame jf_menu;
     private javax.swing.JLabel jl_LogoUnitec;
     private javax.swing.JLabel jl_enlaceAsistencia;
     private javax.swing.JLabel jl_logoPortal;
     private javax.swing.JLabel jl_olvidar;
+    private javax.swing.JPanel jp_desplazable;
+    private javax.swing.JPanel jp_panelInferior;
+    private javax.swing.JPanel jp_panelSuperior;
     private javax.swing.JPanel jp_principal;
     private javax.swing.JPanel jp_superior;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
+ /*
+    cosas a agregar:
+    - /InicioSesion/ cuando de enter que inicie sesion
+    - /InicioSesion/ que abra google al dar click en los label
+     */
+
 //mis variables
     private final String enlaceAsistenciaJaguar = "www.google.com";
     //https://unitec.edu/asistenciajaguar/
@@ -636,17 +798,18 @@ public final class InicioSesion extends javax.swing.JFrame {
         labelname.setIcon(icon);
         this.repaint();
     }
-    public void setJDContrasenia(){
-       
+
+    public void setJDContrasenia() {
+
         jd_Contrase.pack();
         jd_Contrase.setLocationRelativeTo(this);
         jd_Contrase.setModal(true);
-        setLabelIcon(jl_LogoUnitec,"src/p2proyecto_oliveriraheta/logoUnitec.png");
+        setLabelIcon(jl_LogoUnitec, "src/p2proyecto_oliveriraheta/logoUnitec.png");
         jd_Contrase.setVisible(true);
     }
 
     public void setInicioSesion() {
-        
+
         this.pack();
         this.setLocationRelativeTo(null);
         this.setExtendedState(6);
