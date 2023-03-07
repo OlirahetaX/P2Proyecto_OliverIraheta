@@ -1,8 +1,10 @@
 
 package p2proyecto_oliveriraheta;
 
+import java.io.Serializable;
 
-public class Registro {
+
+public class Registro implements Serializable{
     private String usuario,password,rol="Registro";
 
     public Registro(String usuario, String password) {
@@ -35,6 +37,11 @@ public class Registro {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+        return  usuario ;
     }
     
 }

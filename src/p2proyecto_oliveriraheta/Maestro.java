@@ -1,9 +1,13 @@
 package p2proyecto_oliveriraheta;
 
-public class Maestro {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Maestro implements Serializable{
 
     private int id,sueldo;
     private String nombre,profesion,usuario,password,rol= "maestro";
+    private ArrayList<Clase> listaClases = new ArrayList();
 
     public Maestro() {
     }
@@ -17,6 +21,14 @@ public class Maestro {
         this.password = password;
     }
 
+    public ArrayList<Clase> getListaClases() {
+        return listaClases;
+    }
+
+    public void setListaClases(ArrayList<Clase> listaClases) {
+        this.listaClases = listaClases;
+    }
+    
     public int getId() {
         return id;
     }
@@ -71,6 +83,11 @@ public class Maestro {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre ;
     }
     
 }

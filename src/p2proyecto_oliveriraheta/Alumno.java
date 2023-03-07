@@ -1,8 +1,9 @@
 package p2proyecto_oliveriraheta;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Alumno {
+public class Alumno implements Serializable {
 
     private int cuenta;
     private String nombre, carrera, usuario, password;
@@ -11,6 +12,15 @@ public class Alumno {
 
     public Alumno() {
     }
+
+    public Alumno(int cuenta, String nombre, String carrera, String usuario, String password) {
+        this.cuenta = cuenta;
+        this.nombre = nombre;
+        this.carrera = carrera;
+        this.usuario = usuario;
+        this.password = password;
+    }
+    
 
     public int getCuenta() {
         return cuenta;
@@ -58,6 +68,11 @@ public class Alumno {
 
     public void setClasesCursadas(ArrayList<Clase> ClasesCursadas) {
         this.ClasesCursadas = ClasesCursadas;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre ;
     }
 
 }

@@ -21,9 +21,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.security.cert.CRLReason;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -39,7 +42,7 @@ public final class InicioSesion extends javax.swing.JFrame {
         setTitle("CANVAS");
         setInicioSesion();
         desplace = new Desface();
-        cargarArchivo();
+        cargarArchivos();
     }
 
     /**
@@ -66,7 +69,7 @@ public final class InicioSesion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         bg_opcRecu = new javax.swing.ButtonGroup();
-        jf_menu = new javax.swing.JFrame();
+        jf_registro = new javax.swing.JFrame();
         jp_panelSuperior = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jl_nombre = new javax.swing.JLabel();
@@ -87,18 +90,26 @@ public final class InicioSesion extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jl_Asignar = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jp_desplazable = new javax.swing.JPanel();
         jd_modificar = new javax.swing.JDialog();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        jp_modMaestros = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
-        jDialog1 = new javax.swing.JDialog();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jt_maestro = new javax.swing.JTree();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
         jp_superior = new javax.swing.JPanel();
         jl_logoPortal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -250,12 +261,12 @@ public final class InicioSesion extends javax.swing.JFrame {
 
         jd_Contrase.getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        jf_menu.addComponentListener(new java.awt.event.ComponentAdapter() {
+        jf_registro.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
-                jf_menuComponentResized(evt);
+                jf_registroComponentResized(evt);
             }
         });
-        jf_menu.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jf_registro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jp_panelSuperior.setBackground(new java.awt.Color(37, 71, 106));
 
@@ -311,7 +322,7 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jf_menu.getContentPane().add(jp_panelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1020, 210));
+        jf_registro.getContentPane().add(jp_panelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 1020, 210));
 
         jp_panelInferior.setBackground(new java.awt.Color(236, 240, 245));
         jp_panelInferior.setPreferredSize(new java.awt.Dimension(650, 430));
@@ -367,20 +378,21 @@ public final class InicioSesion extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jl_Alumno, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jl_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(22, 22, 22)
                 .addComponent(jl_Alumno, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -420,12 +432,15 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jl_Clase, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setPreferredSize(new java.awt.Dimension(150, 150));
         jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel12MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel12MouseEntered(evt);
             }
@@ -488,7 +503,7 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jl_Asignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
@@ -502,42 +517,24 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane5.setViewportView(jTable2);
-
         javax.swing.GroupLayout jp_panelInferiorLayout = new javax.swing.GroupLayout(jp_panelInferior);
         jp_panelInferior.setLayout(jp_panelInferiorLayout);
         jp_panelInferiorLayout.setHorizontalGroup(
             jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_panelInferiorLayout.createSequentialGroup()
-                .addGroup(jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(88, 88, 88)
+                .addGroup(jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jp_panelInferiorLayout.createSequentialGroup()
-                        .addContainerGap(148, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_panelInferiorLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5)
-                            .addGroup(jp_panelInferiorLayout.createSequentialGroup()
-                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                        .addGap(12, 12, 12)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
         );
         jp_panelInferiorLayout.setVerticalGroup(
             jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -547,14 +544,12 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addGroup(jp_panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(538, 538, 538))
         );
 
-        jf_menu.getContentPane().add(jp_panelInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 1020, 850));
+        jf_registro.getContentPane().add(jp_panelInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 1020, 850));
 
         jp_desplazable.setBackground(new java.awt.Color(255, 51, 51));
 
@@ -569,7 +564,7 @@ public final class InicioSesion extends javax.swing.JFrame {
             .addGap(0, 870, Short.MAX_VALUE)
         );
 
-        jf_menu.getContentPane().add(jp_desplazable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 870));
+        jf_registro.getContentPane().add(jp_desplazable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 870));
 
         jd_modificar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -599,70 +594,128 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jTree1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTree1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jp_modMaestros.setBackground(new java.awt.Color(236, 240, 245));
+        jp_modMaestros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jt_maestro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jt_maestro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("UNITEC");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Maestros");
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Alumnos");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Clases");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Registro");
-        treeNode1.add(treeNode2);
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane2.setViewportView(jTree1);
+        jt_maestro.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jt_maestro);
+
+        jTextField1.setBackground(new java.awt.Color(236, 240, 245));
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField1.setText("Contraseña");
+        jTextField1.setBorder(null);
+
+        jTextField2.setBackground(new java.awt.Color(236, 240, 245));
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField2.setText("No. Identidad");
+        jTextField2.setBorder(null);
+
+        jTextField3.setBackground(new java.awt.Color(236, 240, 245));
+        jTextField3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField3.setText("Nombre");
+        jTextField3.setBorder(null);
+
+        jTextField4.setBackground(new java.awt.Color(236, 240, 245));
+        jTextField4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField4.setText("Sueldo");
+        jTextField4.setBorder(null);
+
+        jTextField5.setBackground(new java.awt.Color(236, 240, 245));
+        jTextField5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField5.setText("Usuario");
+        jTextField5.setBorder(null);
+
+        jTextField6.setBackground(new java.awt.Color(236, 240, 245));
+        jTextField6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField6.setText("Profesion");
+        jTextField6.setBorder(null);
+
+        javax.swing.GroupLayout jp_modMaestrosLayout = new javax.swing.GroupLayout(jp_modMaestros);
+        jp_modMaestros.setLayout(jp_modMaestrosLayout);
+        jp_modMaestrosLayout.setHorizontalGroup(
+            jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_modMaestrosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jp_modMaestrosLayout.setVerticalGroup(
+            jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_modMaestrosLayout.createSequentialGroup()
+                .addGroup(jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_modMaestrosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_modMaestrosLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jp_modMaestros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_modMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jd_modificar.getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 620));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane4.setViewportView(jTable1);
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(301, Short.MAX_VALUE))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -981,34 +1034,32 @@ public final class InicioSesion extends javax.swing.JFrame {
         setInicioSesion();
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jf_menuComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jf_menuComponentResized
+    private void jf_registroComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jf_registroComponentResized
         // TODO add your handling code here:
-        jp_desplazable.setSize(jp_desplazable.getWidth(), jf_menu.getHeight());
+        jp_desplazable.setSize(jp_desplazable.getWidth(), jf_registro.getHeight());
         resizedJFmenu();
-    }//GEN-LAST:event_jf_menuComponentResized
+    }//GEN-LAST:event_jf_registroComponentResized
 
     private void jb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMouseClicked
         // TODO add your handling code here:
         int existe = 0;
 
-        for (Object r : usuarios) {
-            if (r instanceof Registro registro) {
-                if (registro.getUsuario().equals(tf_usuario.getText()) && registro.getPassword().equals(pf_contra.getText())) {
-                    existe = 1;
-                }
+        for (Alumno listaAlumno : alumnos) {
+            if (listaAlumno.getUsuario().equals(tf_usuario.getText()) && listaAlumno.getPassword().equals(pf_contra.getText())) {
+                existe = 3;
             }
-            if (r instanceof Maestro maestro) {
-                if (maestro.getUsuario().equals(tf_usuario.getText()) && maestro.getPassword().equals(pf_contra.getText())) {
-                    existe = 2;
-                }
-            }
-            if (r instanceof Alumno alumno) {
-                if (alumno.getUsuario().equals(tf_usuario.getText()) && alumno.getPassword().equals(pf_contra.getText())) {
-                    existe = 3;
-                }
-            }
-
         }
+        for (Maestro maestro : maestros) {
+            if (maestro.getUsuario().equals(tf_usuario.getText()) && maestro.getPassword().equals(pf_contra.getText())) {
+                existe = 2;
+            }
+        }
+        for (Registro listaRegistro : registros) {
+            if (listaRegistro.getUsuario().equals(tf_usuario.getText()) && listaRegistro.getPassword().equals(pf_contra.getText())) {
+                existe = 1;
+            }
+        }
+
         if (existe == 0) {
             JOptionPane.showMessageDialog(this, "Usuario NO Encontrado");
         }
@@ -1103,6 +1154,23 @@ public final class InicioSesion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_maestro.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+         ((DefaultMutableTreeNode) raiz.getChildAt(0)).removeAllChildren();
+        for (Maestro m : maestros) {
+            ((DefaultMutableTreeNode) raiz.getChildAt(0)).add(new DefaultMutableTreeNode(m));
+        }
+        modelo.reload();
+        jt_maestro.setModel(modelo);
+        jd_modificar.pack();
+        jd_modificar.setLocationRelativeTo(jf_registro);
+        jd_modificar.setModal(true);
+        jd_modificar.setVisible(true);
+
+    }//GEN-LAST:event_jPanel12MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1146,7 +1214,6 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg_opcRecu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1182,18 +1249,25 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton jb_CambioContra;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_Contrase;
     private javax.swing.JDialog jd_modificar;
-    private javax.swing.JFrame jf_menu;
+    private javax.swing.JFrame jf_registro;
     private javax.swing.JLabel jl_Alumno;
     private javax.swing.JLabel jl_Asignar;
     private javax.swing.JLabel jl_Clase;
@@ -1205,10 +1279,12 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_olvidar;
     private javax.swing.JPanel jp_desplazable;
+    private javax.swing.JPanel jp_modMaestros;
     private javax.swing.JPanel jp_panelInferior;
     private javax.swing.JPanel jp_panelSuperior;
     private javax.swing.JPanel jp_principal;
     private javax.swing.JPanel jp_superior;
+    private javax.swing.JTree jt_maestro;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
@@ -1221,72 +1297,45 @@ public final class InicioSesion extends javax.swing.JFrame {
 //mis variables
     Desface desplace;
     private final String enlaceAsistenciaJaguar = "https://unitec.edu/asistenciajaguar/";
-    public ArrayList<Registro> usuarios = new ArrayList();
-    public ArrayList<Clase> clases = new ArrayList();
+    private ArrayList<Maestro> maestros;
+    private ArrayList<Registro> registros;
+    private ArrayList<Alumno> alumnos;
+
     public String usuario = "";
 
-//    public File archivo = new File("./Datos.txt");
-    //metodos
-    public void cargarArchivo() throws FileNotFoundException, IOException {
-        File archivo = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-
-        try {
-
-            archivo = new File("./Datos.txt");
-            if (archivo.exists()) {
-            }
-            fr = new FileReader(archivo);
-            br = new BufferedReader(fr);
-            String linea;
-
-            while ((linea = br.readLine()) != null) {
-
-                String[] lineaToken = linea.split("-");
-                if (lineaToken[0].equals("Maestro")) {
-
-                }
-                if (lineaToken[0].equals("Alumno")) {
-
-                }
-                if (lineaToken[0].equals("Registro")) {
-                    usuarios.add(new Registro(lineaToken[1], lineaToken[2]));
-                } else {
-
-                }
-            }
-        } catch (FileNotFoundException e) {
-        }
-        br.close();
-        fr.close();
+//mis metodos para setear 
+    public void cargarArchivos() {
+        AdmMaestro am = new AdmMaestro("./Maestros.oli");
+        am.cargarArchivo();
+        maestros = am.getListaMaestros();
+        AdmRegistro ar = new AdmRegistro("./Registro.oli");
+        ar.cargarArchivo();
+        registros = ar.getListaRegistros();
+        AdmAlumno aa = new AdmAlumno("./Alumnos.oli");
+        aa.cargarArchivo();
+        alumnos = aa.getListaAlumnos();
+        
     }
 
-//mis metodos para setear 
     public void resizedJFmenu() {
-        jp_panelInferior.setSize(jf_menu.getWidth() - jp_desplazable.getWidth(), (jf_menu.getHeight() - jp_panelSuperior.getHeight()));
-        jp_panelSuperior.setSize(jf_menu.getWidth() - jp_desplazable.getWidth(), (jf_menu.getHeight() - jp_panelInferior.getHeight()));
+        jp_panelInferior.setSize(jf_registro.getWidth() - jp_desplazable.getWidth(), (jf_registro.getHeight() - jp_panelSuperior.getHeight()));
+        jp_panelSuperior.setSize(jf_registro.getWidth() - jp_desplazable.getWidth(), (jf_registro.getHeight() - jp_panelInferior.getHeight()));
         jPanel9.setBounds(100, jPanel9.getY(), jp_panelSuperior.getWidth() - 200, jPanel9.getHeight());
         jPanel7.setBounds(jPanel9.getX(), jPanel7.getY(), jPanel9.getWidth(), jPanel7.getHeight());
     }
 
     public void setJFmenu() {
-        jf_menu.pack();
-        jf_menu.setLocationRelativeTo(this);
-        jf_menu.setExtendedState(6);
+        jf_registro.pack();
+        jf_registro.setLocationRelativeTo(this);
+        jf_registro.setExtendedState(6);
         jl_nombre.setText("¡Hola " + usuario + " !");
         setLabelIcon(jl_Alumno, "src/icons/student.jpg");
         setLabelIcon(jl_Asignar, "src/icons/asignar.png");
         setLabelIcon(jl_Clase, "src/icons/clases.jpg");
         setLabelIcon(jl_Maestro, "src/icons/teacher.jpg");
         setLabelIcon(jl_menuIcon, "src/icons/menu.png");
-        jTable2.setRowHeight(jPanel12.getHeight());
-        
-        DefaultTableModel tm = (DefaultTableModel)jTable2.getModel();
-        tm.addRow(new Object[]{jPanel13,jPanel12,"hola"});
-        jTable2.setModel(tm);
-        
-        jf_menu.setVisible(true);
+
+        jf_registro.setVisible(true);
     }
 
     public void setLabelIcon(JLabel labelname, String direc) {
@@ -1314,6 +1363,5 @@ public final class InicioSesion extends javax.swing.JFrame {
 
         this.setVisible(true);
     }
-    
-    
+
 }
