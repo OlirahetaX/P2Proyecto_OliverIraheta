@@ -5,20 +5,21 @@ import java.util.ArrayList;
 
 public class Maestro implements Serializable{
 
-    private int id,sueldo;
-    private String nombre,profesion,usuario,password,rol= "maestro";
+    private int sueldo;
+    private String nombre,profesion,usuario,password,id,rol;
     private ArrayList<Clase> listaClases = new ArrayList();
 
     public Maestro() {
     }
 
-    public Maestro(int id, int sueldo, String nombre, String profesion, String usuario, String password) {
-        this.id = id;
+    public Maestro(int sueldo, String nombre, String profesion, String usuario, String password, String id, String rol) {
         this.sueldo = sueldo;
         this.nombre = nombre;
         this.profesion = profesion;
         this.usuario = usuario;
         this.password = password;
+        this.id = id;
+        this.rol = rol;
     }
 
     public ArrayList<Clase> getListaClases() {
@@ -29,11 +30,11 @@ public class Maestro implements Serializable{
         this.listaClases = listaClases;
     }
     
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

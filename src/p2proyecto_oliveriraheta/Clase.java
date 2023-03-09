@@ -6,17 +6,17 @@ import java.util.Date;
 
 
 public class Clase{
-    private int id,uv,semestre,periodo,anio;
-    private String nombre,hora;
+    private int uv,semestre,periodo,anio;
+    private String nombre,hora,id;
 
     public Clase() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

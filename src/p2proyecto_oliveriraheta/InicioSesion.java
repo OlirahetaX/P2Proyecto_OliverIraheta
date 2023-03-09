@@ -17,16 +17,19 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import desplazable.Desface;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.security.cert.CRLReason;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 
 /**
  *
@@ -43,6 +46,10 @@ public final class InicioSesion extends javax.swing.JFrame {
         setInicioSesion();
         desplace = new Desface();
         cargarArchivos();
+        Image a = Toolkit.getDefaultToolkit().createImage("src/icons/ver.png").getScaledInstance(25, 25, 0);
+        jl_ver.setIcon(new ImageIcon(a));
+        Image b = Toolkit.getDefaultToolkit().createImage("src/icons/nover.png").getScaledInstance(25, 25, 0);
+        jl_noVer.setIcon(new ImageIcon(b));
     }
 
     /**
@@ -56,10 +63,10 @@ public final class InicioSesion extends javax.swing.JFrame {
 
         jd_Contrase = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
+        jl_LogoUnitec = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jl_LogoUnitec = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -95,21 +102,45 @@ public final class InicioSesion extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jp_modMaestros = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_maestro = new javax.swing.JTree();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        jp_fondoMod = new javax.swing.JPanel();
+        pf_confirmarContraMod = new javax.swing.JPasswordField();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        pf_ContraMod = new javax.swing.JPasswordField();
+        jl_errorContraMaestro = new javax.swing.JLabel();
+        jl_ver = new javax.swing.JLabel();
+        jl_noVer = new javax.swing.JLabel();
+        jp_modMaestros = new javax.swing.JPanel();
+        tf_identidadMaestro = new javax.swing.JTextField();
+        tf_nombreMaestro = new javax.swing.JTextField();
+        tf_sueldoMaestro = new javax.swing.JTextField();
+        tf_usuarioMaestro = new javax.swing.JTextField();
+        tf_profesionMaestro = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_clasesMaestro = new javax.swing.JList<>();
+        jb_crearMaestro = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tf_rolMod = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jb_confirmar = new javax.swing.JButton();
+        pm_menuMod = new javax.swing.JPopupMenu();
+        mi_mod = new javax.swing.JMenuItem();
+        mi_eliminar = new javax.swing.JMenuItem();
         jp_superior = new javax.swing.JPanel();
         jl_logoPortal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -136,6 +167,10 @@ public final class InicioSesion extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(36, 71, 106));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Asistente para recuperara contraseña o usuario");
+
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -158,10 +193,6 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Asistente para recuperara contraseña o usuario");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -566,6 +597,11 @@ public final class InicioSesion extends javax.swing.JFrame {
 
         jf_registro.getContentPane().add(jp_desplazable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 870));
 
+        jd_modificar.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                jd_modificarWindowClosed(evt);
+            }
+        });
         jd_modificar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel14.setBackground(new java.awt.Color(236, 240, 245));
@@ -584,7 +620,7 @@ public final class InicioSesion extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(251, 251, 251)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,109 +630,264 @@ public final class InicioSesion extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jp_modMaestros.setBackground(new java.awt.Color(236, 240, 245));
-        jp_modMaestros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane2.setBorder(null);
 
-        jt_maestro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jt_maestro.setBackground(new java.awt.Color(236, 240, 245));
+        jt_maestro.setBorder(null);
         jt_maestro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jt_maestro.setForeground(new java.awt.Color(37, 71, 106));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("UNITEC");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Maestros");
         treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Alumnos");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Registro");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Clases");
+        treeNode1.add(treeNode2);
         jt_maestro.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_maestro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_maestroMouseClicked(evt);
+            }
+        });
+        jt_maestro.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                jt_maestroValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jt_maestro);
 
-        jTextField1.setBackground(new java.awt.Color(236, 240, 245));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Contraseña");
-        jTextField1.setBorder(null);
+        jp_fondoMod.setBackground(new java.awt.Color(236, 240, 245));
 
-        jTextField2.setBackground(new java.awt.Color(236, 240, 245));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("No. Identidad");
-        jTextField2.setBorder(null);
+        pf_confirmarContraMod.setBackground(new java.awt.Color(236, 240, 245));
+        pf_confirmarContraMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pf_confirmarContraMod.setBorder(null);
+        pf_confirmarContraMod.setEchoChar('*');
 
-        jTextField3.setBackground(new java.awt.Color(236, 240, 245));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setText("Nombre");
-        jTextField3.setBorder(null);
+        pf_ContraMod.setBackground(new java.awt.Color(236, 240, 245));
+        pf_ContraMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pf_ContraMod.setBorder(null);
+        pf_ContraMod.setEchoChar('*');
 
-        jTextField4.setBackground(new java.awt.Color(236, 240, 245));
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setText("Sueldo");
-        jTextField4.setBorder(null);
+        jl_errorContraMaestro.setForeground(new java.awt.Color(255, 0, 51));
+        jl_errorContraMaestro.setText("Las contraseñas no coinciden");
 
-        jTextField5.setBackground(new java.awt.Color(236, 240, 245));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField5.setText("Usuario");
-        jTextField5.setBorder(null);
+        jl_ver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jl_ver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_verMouseClicked(evt);
+            }
+        });
 
-        jTextField6.setBackground(new java.awt.Color(236, 240, 245));
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField6.setText("Profesion");
-        jTextField6.setBorder(null);
+        jl_noVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jl_noVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_noVerMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jp_modMaestrosLayout = new javax.swing.GroupLayout(jp_modMaestros);
-        jp_modMaestros.setLayout(jp_modMaestrosLayout);
-        jp_modMaestrosLayout.setHorizontalGroup(
-            jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_modMaestrosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jp_modMaestros.setBackground(new java.awt.Color(236, 240, 245));
+        jp_modMaestros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tf_identidadMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        tf_identidadMaestro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_identidadMaestro.setBorder(null);
+        jp_modMaestros.add(tf_identidadMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 245, 20));
+
+        tf_nombreMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        tf_nombreMaestro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_nombreMaestro.setBorder(null);
+        jp_modMaestros.add(tf_nombreMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 245, 20));
+
+        tf_sueldoMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        tf_sueldoMaestro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_sueldoMaestro.setBorder(null);
+        jp_modMaestros.add(tf_sueldoMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 245, 20));
+
+        tf_usuarioMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        tf_usuarioMaestro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_usuarioMaestro.setBorder(null);
+        jp_modMaestros.add(tf_usuarioMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 245, 20));
+
+        tf_profesionMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        tf_profesionMaestro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_profesionMaestro.setBorder(null);
+        jp_modMaestros.add(tf_profesionMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 245, 20));
+        jp_modMaestros.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 245, 10));
+        jp_modMaestros.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 245, 10));
+        jp_modMaestros.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 245, 10));
+        jp_modMaestros.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 245, 10));
+        jp_modMaestros.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 245, 10));
+
+        jl_clasesMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        jl_clasesMaestro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jl_clasesMaestro.setModel(new DefaultListModel()
         );
-        jp_modMaestrosLayout.setVerticalGroup(
-            jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_modMaestrosLayout.createSequentialGroup()
-                .addGroup(jp_modMaestrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_modMaestrosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp_modMaestrosLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jScrollPane3.setViewportView(jl_clasesMaestro);
+
+        jp_modMaestros.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 158, 194));
+
+        jb_crearMaestro.setBackground(new java.awt.Color(236, 240, 245));
+        jb_crearMaestro.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jb_crearMaestro.setForeground(new java.awt.Color(37, 71, 106));
+        jb_crearMaestro.setText("CREAR MAESTRO");
+        jb_crearMaestro.setBorder(null);
+        jb_crearMaestro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearMaestroMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jb_crearMaestroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jb_crearMaestroMouseExited(evt);
+            }
+        });
+        jp_modMaestros.add(jb_crearMaestro, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 146, 39));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel17.setText("Usuario");
+        jp_modMaestros.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 180, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel18.setText("Clases");
+        jp_modMaestros.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 180, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel19.setText("Sueldo");
+        jp_modMaestros.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 180, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel20.setText("Nombre");
+        jp_modMaestros.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 180, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel21.setText("Profesion");
+        jp_modMaestros.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 180, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel25.setText("No. Identidad");
+        jp_modMaestros.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 180, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel22.setText("Confirmar Contraseña");
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel24.setText("Contraseña");
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(37, 71, 106));
+        jLabel26.setText("Rol");
+
+        tf_rolMod.setBackground(new java.awt.Color(236, 240, 245));
+        tf_rolMod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tf_rolMod.setBorder(null);
+
+        jb_confirmar.setBackground(new java.awt.Color(236, 240, 245));
+        jb_confirmar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jb_confirmar.setForeground(new java.awt.Color(37, 71, 106));
+        jb_confirmar.setText("GUARDAR CAMBIOS");
+        jb_confirmar.setBorder(null);
+        jb_confirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_confirmarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jb_confirmarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jb_confirmarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_fondoModLayout = new javax.swing.GroupLayout(jp_fondoMod);
+        jp_fondoMod.setLayout(jp_fondoModLayout);
+        jp_fondoModLayout.setHorizontalGroup(
+            jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_fondoModLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_fondoModLayout.createSequentialGroup()
+                        .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pf_ContraMod, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_noVer, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                            .addComponent(jl_ver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jb_confirmar)
+                        .addGap(182, 182, 182))
+                    .addGroup(jp_fondoModLayout.createSequentialGroup()
+                        .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_errorContraMaestro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jp_fondoModLayout.createSequentialGroup()
+                        .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pf_confirmarContraMod, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61)
+                        .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_rolMod, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_fondoModLayout.createSequentialGroup()
+                    .addGap(3, 3, 3)
+                    .addComponent(jp_modMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jp_fondoModLayout.setVerticalGroup(
+            jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_fondoModLayout.createSequentialGroup()
+                .addContainerGap(327, Short.MAX_VALUE)
+                .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_fondoModLayout.createSequentialGroup()
+                        .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jl_noVer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jl_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jp_fondoModLayout.createSequentialGroup()
+                                    .addComponent(jLabel24)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(pf_ContraMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jp_fondoModLayout.createSequentialGroup()
+                                .addComponent(jb_confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pf_confirmarContraMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_fondoModLayout.createSequentialGroup()
+                        .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(10, Short.MAX_VALUE))
+                        .addComponent(tf_rolMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_errorContraMaestro)
+                .addGap(80, 80, 80))
+            .addGroup(jp_fondoModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_fondoModLayout.createSequentialGroup()
+                    .addGap(8, 8, 8)
+                    .addComponent(jp_modMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(147, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -704,18 +895,45 @@ public final class InicioSesion extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jp_modMaestros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_fondoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jp_modMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_fondoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154))))
         );
 
-        jd_modificar.getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 620));
+        jd_modificar.getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 670));
+
+        mi_mod.setText("Modificar");
+        mi_mod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_modActionPerformed(evt);
+            }
+        });
+        pm_menuMod.add(mi_mod);
+
+        mi_eliminar.setText("Eliminar");
+        mi_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_eliminarActionPerformed(evt);
+            }
+        });
+        pm_menuMod.add(mi_eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1156,20 +1374,182 @@ public final class InicioSesion extends javax.swing.JFrame {
 
     private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
         // TODO add your handling code here:
-        DefaultTreeModel modelo = (DefaultTreeModel) jt_maestro.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
-         ((DefaultMutableTreeNode) raiz.getChildAt(0)).removeAllChildren();
-        for (Maestro m : maestros) {
-            ((DefaultMutableTreeNode) raiz.getChildAt(0)).add(new DefaultMutableTreeNode(m));
-        }
-        modelo.reload();
-        jt_maestro.setModel(modelo);
+        setTreeMaestro();
         jd_modificar.pack();
         jd_modificar.setLocationRelativeTo(jf_registro);
         jd_modificar.setModal(true);
+        jp_fondoMod.setVisible(true);
+        jp_modMaestros.setVisible(true);
+        jl_ver.setVisible(false);
+        jl_noVer.setVisible(true);
+        jl_errorContraMaestro.setVisible(false);
+        jb_confirmar.setVisible(false);
         jd_modificar.setVisible(true);
+        jd_modificar.setResizable(false);
 
     }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void jb_confirmarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_confirmarMouseEntered
+        // TODO add your handling code here:
+        jb_confirmar.setBackground(new Color(37, 71, 106));
+        jb_confirmar.setForeground(Color.white);
+    }//GEN-LAST:event_jb_confirmarMouseEntered
+
+    private void jb_confirmarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_confirmarMouseExited
+        // TODO add your handling code here:
+        jb_confirmar.setBackground(new Color(236, 240, 245));
+        jb_confirmar.setForeground(new Color(37, 71, 106));
+    }//GEN-LAST:event_jb_confirmarMouseExited
+
+    private void jb_crearMaestroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMaestroMouseEntered
+        // TODO add your handling code here:
+        jb_crearMaestro.setBackground(new Color(37, 71, 106));
+        jb_crearMaestro.setForeground(Color.white);
+    }//GEN-LAST:event_jb_crearMaestroMouseEntered
+
+    private void jb_crearMaestroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMaestroMouseExited
+        // TODO add your handling code here:
+        jb_crearMaestro.setBackground(new Color(236, 240, 245));
+        jb_crearMaestro.setForeground(new Color(37, 71, 106));
+    }//GEN-LAST:event_jb_crearMaestroMouseExited
+
+    private void jb_crearMaestroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMaestroMouseClicked
+        // TODO add your handling code here:
+//        int id, int sueldo, String nombre, String profesion, String usuario, String password)
+        if (pf_ContraMod.getText().equals(pf_confirmarContraMod.getText())) {
+            Maestro newMaestro = new Maestro(Integer.parseInt(tf_sueldoMaestro.getText()), tf_nombreMaestro.getText(), tf_profesionMaestro.getText(), tf_usuarioMaestro.getText(), pf_ContraMod.getText(), tf_identidadMaestro.getText(), tf_rolMod.getText());
+            boolean noExiste = true;
+            for (Maestro m : maestros) {
+                if (m.getId().equals(newMaestro.getId()) || m.getNombre().equals(newMaestro.getNombre()) || m.getUsuario().equals(newMaestro.getUsuario())) {
+                    noExiste = false;
+                }
+            }
+            if (noExiste) {
+                maestros.add(newMaestro);
+                escribirArchivo();
+                jl_errorContraMaestro.setVisible(false);
+                setTreeMaestro();
+                JOptionPane.showMessageDialog(jd_modificar, "MAESTRO CREADO");
+                jl_errorContraMaestro.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(jd_modificar, "MAESTRO YA EXISTE");
+            }
+        } else {
+            jl_errorContraMaestro.setVisible(true);
+        }
+
+
+    }//GEN-LAST:event_jb_crearMaestroMouseClicked
+
+    private void jl_verMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_verMouseClicked
+        // TODO add your handling code here:
+        jl_noVer.setVisible(true);
+        jl_ver.setVisible(false);
+        pf_ContraMod.setEchoChar((char) 0);
+        pf_confirmarContraMod.setEchoChar((char) 0);
+
+    }//GEN-LAST:event_jl_verMouseClicked
+
+    private void jl_noVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_noVerMouseClicked
+        // TODO add your handling code here:
+        jl_noVer.setVisible(false);
+        jl_ver.setVisible(true);
+        pf_ContraMod.setEchoChar('*');
+        pf_confirmarContraMod.setEchoChar('*');
+    }//GEN-LAST:event_jl_noVerMouseClicked
+
+    private void jt_maestroValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jt_maestroValueChanged
+
+
+    }//GEN-LAST:event_jt_maestroValueChanged
+
+    private void jd_modificarWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_modificarWindowClosed
+        // TODO add your handling code here:
+        jp_modMaestros.setVisible(false);
+        jp_fondoMod.setVisible(false);
+    }//GEN-LAST:event_jd_modificarWindowClosed
+
+    private void jb_confirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_confirmarMouseClicked
+        if (nodo_seleccionado != null) {
+            if (pf_ContraMod.getText().equals(pf_confirmarContraMod.getText())) {
+                DefaultTreeModel m = (DefaultTreeModel) jt_maestro.getModel();
+                if (nodo_seleccionado.getUserObject() instanceof Maestro) {
+                    maestro_seleccionado.setId(tf_identidadMaestro.getText());
+                    maestro_seleccionado.setNombre(tf_nombreMaestro.getText());
+                    maestro_seleccionado.setPassword(pf_ContraMod.getText());
+                    maestro_seleccionado.setProfesion(tf_profesionMaestro.getText());
+                    maestro_seleccionado.setSueldo(Integer.parseInt(tf_sueldoMaestro.getText()));
+                    maestro_seleccionado.setUsuario(tf_usuarioMaestro.getText());
+                    maestro_seleccionado.setRol(tf_rolMod.getText());
+                    escribirArchivo();
+                }
+                JOptionPane.showMessageDialog(jd_modificar, "Cambios Guardados");
+            } else {
+                jl_errorContraMaestro.setVisible(true);
+            }
+        } else {
+            JOptionPane.showMessageDialog(jd_modificar, "Seleccione un usuario");
+        }
+
+
+    }//GEN-LAST:event_jb_confirmarMouseClicked
+
+    private void jt_maestroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_maestroMouseClicked
+
+        if (evt.isMetaDown()) {
+            int row = jt_maestro.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_maestro.setSelectionRow(row);
+            Object v1 = jt_maestro.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            pm_menuMod.show(evt.getComponent(), evt.getX(), evt.getY());
+        } else {
+            if (nodo_seleccionado.getUserObject() instanceof Maestro) {
+                jt_maestro.clearSelection();
+                jb_crearMaestro.setVisible(true);
+                jb_confirmar.setVisible(false);
+                clearMaestroMod();
+            }
+        }
+
+
+    }//GEN-LAST:event_jt_maestroMouseClicked
+
+    private void mi_modActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_modActionPerformed
+        jb_crearMaestro.setVisible(false);
+        if (nodo_seleccionado.getUserObject() instanceof Maestro) {
+            maestro_seleccionado = (Maestro) nodo_seleccionado.getUserObject();
+            pf_ContraMod.setEchoChar((char) 0);
+            pf_confirmarContraMod.setEchoChar((char) 0);
+            jp_modMaestros.setVisible(true);
+            tf_identidadMaestro.setText(maestro_seleccionado.getId());
+            tf_nombreMaestro.setText(maestro_seleccionado.getNombre());
+            tf_profesionMaestro.setText(maestro_seleccionado.getProfesion());
+            tf_sueldoMaestro.setText(maestro_seleccionado.getSueldo() + "");
+            tf_usuarioMaestro.setText(maestro_seleccionado.getUsuario());
+            pf_ContraMod.setText(maestro_seleccionado.getPassword());
+            pf_confirmarContraMod.setText("");
+            tf_rolMod.setText(maestro_seleccionado.getRol());
+            DefaultListModel modelo = (DefaultListModel) jl_clasesMaestro.getModel();
+            modelo.clear();
+            for (Clase c : maestro_seleccionado.getListaClases()) {
+                modelo.addElement(c);
+            }
+            jl_clasesMaestro.setModel(modelo);
+            jb_confirmar.setVisible(true);
+        }
+
+    }//GEN-LAST:event_mi_modActionPerformed
+
+    private void mi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_eliminarActionPerformed
+
+        if (nodo_seleccionado.getUserObject() instanceof Maestro) {
+            maestros.remove(nodo_seleccionado.getUserObject());
+            clearMaestroMod();
+        }
+        setTreeMaestro();
+        escribirArchivo();
+
+    }//GEN-LAST:event_mi_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1222,7 +1602,16 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1249,6 +1638,7 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1256,14 +1646,12 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton jb_CambioContra;
+    private javax.swing.JButton jb_confirmar;
+    private javax.swing.JButton jb_crearMaestro;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_Contrase;
     private javax.swing.JDialog jd_modificar;
@@ -1273,20 +1661,36 @@ public final class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel jl_Clase;
     private javax.swing.JLabel jl_LogoUnitec;
     private javax.swing.JLabel jl_Maestro;
+    private javax.swing.JList<String> jl_clasesMaestro;
     private javax.swing.JLabel jl_enlaceAsistencia;
+    private javax.swing.JLabel jl_errorContraMaestro;
     private javax.swing.JLabel jl_logoPortal;
     private javax.swing.JLabel jl_menuIcon;
+    private javax.swing.JLabel jl_noVer;
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_olvidar;
+    private javax.swing.JLabel jl_ver;
     private javax.swing.JPanel jp_desplazable;
+    private javax.swing.JPanel jp_fondoMod;
     private javax.swing.JPanel jp_modMaestros;
     private javax.swing.JPanel jp_panelInferior;
     private javax.swing.JPanel jp_panelSuperior;
     private javax.swing.JPanel jp_principal;
     private javax.swing.JPanel jp_superior;
     private javax.swing.JTree jt_maestro;
+    private javax.swing.JMenuItem mi_eliminar;
+    private javax.swing.JMenuItem mi_mod;
+    private javax.swing.JPasswordField pf_ContraMod;
+    private javax.swing.JPasswordField pf_confirmarContraMod;
     private javax.swing.JPasswordField pf_contra;
+    private javax.swing.JPopupMenu pm_menuMod;
+    private javax.swing.JTextField tf_identidadMaestro;
+    private javax.swing.JTextField tf_nombreMaestro;
+    private javax.swing.JTextField tf_profesionMaestro;
+    private javax.swing.JTextField tf_rolMod;
+    private javax.swing.JTextField tf_sueldoMaestro;
     private javax.swing.JTextField tf_usuario;
+    private javax.swing.JTextField tf_usuarioMaestro;
     // End of variables declaration//GEN-END:variables
  /*
     cosas a agregar:
@@ -1295,11 +1699,18 @@ public final class InicioSesion extends javax.swing.JFrame {
      */
 
 //mis variables
+    private DefaultMutableTreeNode nodo_seleccionado;
+    private Maestro maestro_seleccionado;
+    private Registro registro_seleccionado;
+    private Alumno alumno_seleccionado;
+    private Clase clase_seleccionada;
+
     Desface desplace;
     private final String enlaceAsistenciaJaguar = "https://unitec.edu/asistenciajaguar/";
     private ArrayList<Maestro> maestros;
     private ArrayList<Registro> registros;
     private ArrayList<Alumno> alumnos;
+    private ArrayList<Clase> clases;
 
     public String usuario = "";
 
@@ -1314,7 +1725,45 @@ public final class InicioSesion extends javax.swing.JFrame {
         AdmAlumno aa = new AdmAlumno("./Alumnos.oli");
         aa.cargarArchivo();
         alumnos = aa.getListaAlumnos();
-        
+        AdmClase ac = new AdmClase("./Clase.oli");
+        ac.cargarArchivo();
+        clases = ac.getListaClases();
+
+    }
+
+    public void escribirArchivo() {
+        AdmMaestro am = new AdmMaestro("./Maestros.oli");
+        am.setListaMaestros(maestros);
+        am.escribirArchivo();
+        AdmRegistro ar = new AdmRegistro("./Registro.oli");
+        ar.setListaRegistros(registros);
+        ar.escribirArchivo();
+        AdmAlumno aa = new AdmAlumno("./Alumnos.oli");
+        aa.setListaPersonas(alumnos);
+        aa.escribirArchivo();
+        AdmClase ac = new AdmClase("./Clase.oli");
+        ac.setListaClases(clases);
+        ac.escribirArchivo();
+    }
+
+    public void setTreeMaestro() {
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_maestro.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        ((DefaultMutableTreeNode) raiz.getChildAt(0)).removeAllChildren();
+        for (Maestro m : maestros) {
+            ((DefaultMutableTreeNode) raiz.getChildAt(0)).add(new DefaultMutableTreeNode(m));
+        }
+        for (Alumno a : alumnos) {
+            ((DefaultMutableTreeNode) raiz.getChildAt(1)).add(new DefaultMutableTreeNode(a));
+        }
+        for (Registro a : registros) {
+            ((DefaultMutableTreeNode) raiz.getChildAt(2)).add(new DefaultMutableTreeNode(a));
+        }
+        for (Clase a : clases) {
+            ((DefaultMutableTreeNode) raiz.getChildAt(3)).add(new DefaultMutableTreeNode(a));
+        }
+        modelo.reload();
+        jt_maestro.setModel(modelo);
     }
 
     public void resizedJFmenu() {
@@ -1329,20 +1778,19 @@ public final class InicioSesion extends javax.swing.JFrame {
         jf_registro.setLocationRelativeTo(this);
         jf_registro.setExtendedState(6);
         jl_nombre.setText("¡Hola " + usuario + " !");
-        setLabelIcon(jl_Alumno, "src/icons/student.jpg");
-        setLabelIcon(jl_Asignar, "src/icons/asignar.png");
-        setLabelIcon(jl_Clase, "src/icons/clases.jpg");
-        setLabelIcon(jl_Maestro, "src/icons/teacher.jpg");
-        setLabelIcon(jl_menuIcon, "src/icons/menu.png");
+
+        Image a = Toolkit.getDefaultToolkit().createImage("src/icons/student.jpg").getScaledInstance(120, 120, 0);
+        jl_Alumno.setIcon(new ImageIcon(a));
+        Image b = Toolkit.getDefaultToolkit().createImage("src/icons/asignar.png").getScaledInstance(120, 120, 0);
+        jl_Asignar.setIcon(new ImageIcon(b));
+        Image c = Toolkit.getDefaultToolkit().createImage("src/icons/teacher.jpg").getScaledInstance(120, 120, 0);
+        jl_Maestro.setIcon(new ImageIcon(c));
+        Image d = Toolkit.getDefaultToolkit().createImage("src/icons/menu.png").getScaledInstance(35, 35, 0);
+        jl_menuIcon.setIcon(new ImageIcon(d));
+        Image e = Toolkit.getDefaultToolkit().createImage("src/icons/clases.jpg").getScaledInstance(120, 120, 0);
+        jl_Clase.setIcon(new ImageIcon(e));
 
         jf_registro.setVisible(true);
-    }
-
-    public void setLabelIcon(JLabel labelname, String direc) {
-        ImageIcon image = new ImageIcon(direc);
-        Icon icon = new ImageIcon(image.getImage().getScaledInstance(labelname.getWidth(), labelname.getHeight(), Image.SCALE_DEFAULT));
-        labelname.setIcon(icon);
-        this.repaint();
     }
 
     public void setJDContrasenia() {
@@ -1350,7 +1798,8 @@ public final class InicioSesion extends javax.swing.JFrame {
         jd_Contrase.pack();
         jd_Contrase.setLocationRelativeTo(this);
         jd_Contrase.setModal(true);
-        setLabelIcon(jl_LogoUnitec, "src/icons/logoUnitec.png");
+        Image e = Toolkit.getDefaultToolkit().createImage("src/icons/logoUnitec.png").getScaledInstance(198, 53, 0);
+        jl_logoPortal.setIcon(new ImageIcon(e));
         jd_Contrase.setVisible(true);
     }
 
@@ -1359,9 +1808,21 @@ public final class InicioSesion extends javax.swing.JFrame {
         this.pack();
         this.setLocationRelativeTo(null);
         this.setExtendedState(6);
-        setLabelIcon(jl_logoPortal, "src/icons/logoPortal.png.png");
+        Image e = Toolkit.getDefaultToolkit().createImage("src/icons/logoPortal.png.png").getScaledInstance(208, 43, 0);
+        jl_logoPortal.setIcon(new ImageIcon(e));
 
         this.setVisible(true);
+    }
+
+    public void clearMaestroMod() {
+        tf_identidadMaestro.setText("");
+        tf_nombreMaestro.setText("");
+        tf_profesionMaestro.setText("");
+        tf_sueldoMaestro.setText("");
+        tf_usuarioMaestro.setText("");
+        pf_ContraMod.setText("");
+        pf_confirmarContraMod.setText("");
+        tf_rolMod.setText("");
     }
 
 }

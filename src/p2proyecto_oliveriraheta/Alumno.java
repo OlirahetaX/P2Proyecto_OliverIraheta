@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Alumno implements Serializable {
 
-    private int cuenta;
+    private String cuenta;
     private String nombre, carrera, usuario, password;
     private final String rol  = "Alumno";
     private ArrayList<Clase> ClasesCursadas = new ArrayList();
@@ -13,7 +13,7 @@ public class Alumno implements Serializable {
     public Alumno() {
     }
 
-    public Alumno(int cuenta, String nombre, String carrera, String usuario, String password) {
+    public Alumno(String cuenta, String nombre, String carrera, String usuario, String password) {
         this.cuenta = cuenta;
         this.nombre = nombre;
         this.carrera = carrera;
@@ -22,11 +22,11 @@ public class Alumno implements Serializable {
     }
     
 
-    public int getCuenta() {
+    public String getCuenta() {
         return cuenta;
     }
 
-    public void setCuenta(int cuenta) {
+    public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
